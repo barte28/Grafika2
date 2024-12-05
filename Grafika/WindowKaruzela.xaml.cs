@@ -20,14 +20,14 @@ namespace Grafika
     public partial class WindowKaruzela : Window
     {
         public int Licznik { get; set; }
-        public List<string> obrazki = new List<string>();
+        public List<Obraz> obrazki = new List<Obraz>();
         public WindowKaruzela()
         {
             InitializeComponent();
-            obrazki.Add("cat.jpg");
-            obrazki.Add("elephant.jpg");
-            obrazki.Add("greylag-goose.jpg");
-            obrazki.Add("mountains.jpg");
+            obrazki.Add(new Obraz("cat.jpg"));
+            obrazki.Add(new Obraz("elephant.jpg"));
+            obrazki.Add(new Obraz("greylag-goose.jpg"));
+            obrazki.Add(new Obraz("mountains.jpg"));
 
         }
 
@@ -52,7 +52,39 @@ namespace Grafika
         }
         private void wyswietlObraz(int i)
         {
-            image_modyfikowany.Source = new BitmapImage(new Uri(obrazki[i], UriKind.Relative));
+            image_modyfikowany.Source = new BitmapImage(new Uri(obrazki[i].UrlObrazka, UriKind.Relative));
+            polubienia_textblock.Text = obrazki[i].LiczbaPolubien.ToString();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            obrazki[Licznik].LiczbaPolubien++;
+            wyswietlObraz(Licznik);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (obrazki[Licznik].LiczbaPolubien > 0)
+            {
+                obrazki[Licznik].LiczbaPolubien--;
+                wyswietlObraz(Licznik);
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if(obraz1Radio.IsChecked == true)
+            {
+                image_modyfikowany.Source = new BitmapImage(new Uri("cat.jpg", UriKind.Relative));
+            }
+            else if(obraz2Radio.IsChecked == true)
+            {
+                image_modyfikowany.Source = new BitmapImage(new Uri("elephant.jpg", UriKind.Relative));
+            }
+            else if(obraz3Radio.IsChecked == true)
+            {
+                image_modyfikowany.Source = new BitmapImage(new Uri("mountains.jpg", UriKind.Relative));
+            }
         }
     }
 }

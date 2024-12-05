@@ -7,14 +7,27 @@
         mc:Ignorable="d"
         Title="WindowKaruzela" Height="450" Width="800">
     <StackPanel>
-        <Image Source="../../../cat.jpg" x:Name="image_modyfikowany" Height="300" Margin="10"/>
+        <Image Source="../../../cat.jpg" x:Name="image_modyfikowany" Height="200" Margin="10"/>
         <UniformGrid Rows="1">
-            <Button Click="Button_Click" Margin="10" Padding="5" Height="50">
-                <Image Source="../../../arrow_left.png" Height="50"/>
+            <Button Click="Button_Click" Margin="5" Padding="5" Height="25">
+                <Image Source="../../../arrow_left.png" Height="25"/>
             </Button>
-            <Button Click="Button_Click_1" Margin="10" Padding="5" Height="50">
-                <Image Source="../../../arrow-right.png" Height="50"/>
+            <Button Click="Button_Click_1" Margin="5" Padding="5" Height="25">
+                <Image Source="../../../arrow-right.png" Height="25"/>
             </Button>
         </UniformGrid>
+        <TextBlock Margin="5" x:Name="polubienia_textblock">Polubienia</TextBlock>
+        <UniformGrid Rows="1">
+            <Button Click="Button_Click_2" Margin="5" Padding="5">Polub</Button>
+            <Button Click="Button_Click_3" Margin="5" Padding="5">Odlub</Button>
+        </UniformGrid>
+        <GroupBox Header="Wybór obrazu">
+            <StackPanel>
+            <RadioButton x:Name="obraz1Radio" GroupName="obrazkiRadio" IsChecked="True">cat.jpg</RadioButton>
+            <RadioButton x:Name="obraz2Radio" GroupName="obrazkiRadio">elephant.jpg</RadioButton>
+            <RadioButton x:Name="obraz3Radio" GroupName="obrazkiRadio">mountains.jpg</RadioButton>
+            <Button Click="Button_Click_4">Pokaż</Button>
+            </StackPanel>
+        </GroupBox>
     </StackPanel>
 </Window>
