@@ -8,10 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="arrow-right.png" />
+    <None Remove="arrow_left.png" />
     <None Remove="cat.jpg" />
     <None Remove="elephant.jpg" />
     <None Remove="greylag-goose.jpg" />
     <None Remove="mountains.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="arrow-right.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="arrow_left.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
